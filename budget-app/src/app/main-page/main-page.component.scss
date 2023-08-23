@@ -6,7 +6,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(75deg, $light-purple, $purple );
+    background: linear-gradient(75deg, $light-purple, $purple);
 
     h1 {
         color: $dark;
@@ -14,4 +14,39 @@ header {
         letter-spacing: 1px;
     }
 
+}
+
+
+.total-budget-section {   
+    background-color: $dark;
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        color: $light-grey;
+        font-size: 58px;
+        font-weight: 300;
+
+        &.green {
+            color: lighten( $green, 12%);
+        }
+
+        &.red {
+            color: lighten( $red, 12%);
+        }
+    }
+}
+
+.add-item-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .add-item-container  {
+        width: 680px;
+        
+    }
 }

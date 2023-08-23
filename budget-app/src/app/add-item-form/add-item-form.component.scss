@@ -1,0 +1,33 @@
+@import '../../styles.scss';
+
+.field {
+
+    .field-body {
+        display: flex;
+        gap: 40px;
+
+        .amount-input {
+            width: 100px;
+            height: 36px;
+            background-color: $light-grey;
+            border: transparent;
+            border-radius: 8px;
+        }
+
+        .description-input {
+            width: 400px;
+            height: 36px;
+            background-color: $light-grey;
+            border: transparent;
+            border-radius: 8px;
+        }
+
+        .add-button {
+            height: 36px;
+            background-color: $purple;
+            border: transparent;
+            border-radius: 8px;
+            color: white;
+        }
+    }
+}
