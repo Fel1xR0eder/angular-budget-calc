@@ -1,0 +1,17 @@
+@import '../../styles.scss';
+
+header {
+    width: 100%;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(75deg, $light-purple, $purple );
+
+    h1 {
+        color: $dark;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+}
