@@ -8,12 +8,15 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './budget-item-list.component.html',
   styleUrls: ['./budget-item-list.component.scss']
 })
+
+
 export class BudgetItemListComponent {
 
   @Input() budgetItems: BudgetItem[] = [];
   @Output() delete: EventEmitter<BudgetItem> = new EventEmitter<BudgetItem>();
+  @Output() update: EventEmitter<UpdateEvent> = new EventEmitter<UpdateEvent>();
 
-  constructor( public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) { }
 
   onDelete(item: BudgetItem) {
     this.delete.emit(item);
@@ -25,10 +28,17 @@ export class BudgetItemListComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        this.budgetItems[this.budgetItems.indexOf(item)] = result;
+      if (result) {
+        this.update.emit({
+          old: item,
+          new: result
+        })
       }
     })
   }
+}
 
+export interface UpdateEvent {
+  old: BudgetItem;
+  new: BudgetItem;
 }
