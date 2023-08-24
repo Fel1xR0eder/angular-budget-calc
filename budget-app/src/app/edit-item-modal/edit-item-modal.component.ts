@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BudgetItem } from 'src/models/budget-item.model';
 
 @Component({
@@ -7,13 +8,13 @@ import { BudgetItem } from 'src/models/budget-item.model';
   styleUrls: ['./edit-item-modal.component.scss']
 })
 export class EditItemModalComponent {
-
-  @Input() item: BudgetItem = new BudgetItem('', null); 
   
-  constructor() {  }
+  constructor(public dialogRef: MatDialogRef<EditItemModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public item: BudgetItem) {  }
 
   onSubmitted(updatedItem: BudgetItem) {
-    
+    this.dialogRef.close(updatedItem);
+
   }
 
 

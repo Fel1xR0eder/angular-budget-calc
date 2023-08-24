@@ -10,7 +10,10 @@
             </div>
 
             <div class="field">
-                <button type="submit" [disabled]="!itemForm.valid" class="add-button"> Hinzufügen</button>
+                <button type="submit" [disabled]="!itemForm.valid"  class="add-button"> 
+                <p *ngIf="isNewItem">Hinzufügen</p>
+                <p *ngIf="!isNewItem">Speichern</p>
+            </button>
             </div>
         </div>
     </div>

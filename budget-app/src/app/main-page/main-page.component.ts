@@ -9,14 +9,17 @@ import { BudgetItem } from 'src/models/budget-item.model';
 export class MainPageComponent {
 
   budgetItemsArray: BudgetItem[] = new Array<BudgetItem>();
+  totalBudget: number = 0;
 
   addItem(newItem: BudgetItem) {
     this.budgetItemsArray.push(newItem);
+    this.totalBudget += newItem.amount;
   }
 
 
   deleteItem(item: BudgetItem) {
     let index = this.budgetItemsArray.indexOf(item);
     this.budgetItemsArray.splice(index, 1);
+    this.totalBudget -= item.amount;
   }
 }
