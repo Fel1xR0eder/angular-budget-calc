@@ -1,16 +1,16 @@
-<form>
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
     <div class="field">
         <div class="field-body">
             <div class="field">
-                <input type="number" placeholder="Betrag" class="amount-input" />
+                <input type="number" name="amount" placeholder="Betrag" class="amount-input" [(ngModel)]="item.amount" />
             </div>
 
             <div class="field">
-                <input type="text" placeholder="Beschreibung" class="description-input" />
+                <input type="text" name="description" placeholder="Beschreibung" class="description-input" [(ngModel)]="item.description" />
             </div>
 
             <div class="field">
-                <button class="add-button" disabled="true"> Hinzufügen</button>
+                <button type="submit" [disabled]="itemForm.valid" class="add-button" disabled="true"> Hinzufügen</button>
             </div>
         </div>
     </div>
