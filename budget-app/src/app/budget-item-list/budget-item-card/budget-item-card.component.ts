@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { BudgetItem } from 'src/models/budget-item.model';
 
 @Component({
   selector: 'app-budget-item-card',
@@ -7,7 +8,18 @@ import { Component, Input } from '@angular/core';
 })
 export class BudgetItemCardComponent {
 
-  @Input() isIncome: boolean = true;
+  @Input() item: BudgetItem = new BudgetItem('', null);
+  @Output() xButton: EventEmitter<any> = new EventEmitter<any>();
+  @Output() cardClick: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
+
+  deleteButton() {
+    this.xButton.emit();
+  }
+
+
+  onCardClick() {
+    this.cardClick.emit();
+  }
 }

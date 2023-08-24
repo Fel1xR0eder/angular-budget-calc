@@ -2,15 +2,15 @@
     <div class="field">
         <div class="field-body">
             <div class="field">
-                <input type="number" name="amount" placeholder="Betrag" class="amount-input" [(ngModel)]="item.amount" />
+                <input type="number" required name="amount" placeholder="Betrag" class="amount-input" [(ngModel)]="item.amount" />
             </div>
 
             <div class="field">
-                <input type="text" name="description" placeholder="Beschreibung" class="description-input" [(ngModel)]="item.description" />
+                <input type="text" required name="description" placeholder="Beschreibung" class="description-input" [(ngModel)]="item.description" />
             </div>
 
             <div class="field">
-                <button type="submit" [disabled]="itemForm.valid" class="add-button" disabled="true"> Hinzufügen</button>
+                <button type="submit" [disabled]="!itemForm.valid" class="add-button"> Hinzufügen</button>
             </div>
         </div>
     </div>
